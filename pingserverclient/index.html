@@ -13,35 +13,27 @@
           rgba(253, 187, 45, 0.494733879880077) 100%
       );
       position: relative;
-  }</style>
+  }
+  .messages {
+                padding-left: 0;
+                overflow: hidden;
+                height: 340px;
+                margin-bottom: 40px;
+            }
+  </style>
     <title>HELLO THIS IS A TEST</title>
   </head>
   <body>
       HELLO THIS IS PATRICK
+      <input type="text" name="toto" id="toto" value="HERE IS TEST">
+      
+
+
       <div class="chatPanel">
         <ol id="messages" class="messages"></ol>
       </div>
-      <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
-    <script>
-    const socket = io("http://localhost:3000");
-      // listen for new messages
-      socket.on("message", function(data) {
-
-        $('#messages').append(
-                    "<li><span class='float-left'><span class='circle'>" +
-                        data +
-                        '</div></li>'
-                )
-
-
-
-        console.log(data);
-      });
-  // our sendMsg function...
-      function sendMsg() {
-        socket.emit("message", "HELLO WORLD");
-    }
-         sendMsg();
-    </script>
+      <!-- <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script> -->
+      <script type="module" script src="client.js">
+      </script>
   </body>
 </html>
