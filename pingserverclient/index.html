@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    .chatPanel {
+      border: solid 1px gray;
+      border-radius: 20px 0px 4px 4px;
+      box-shadow: 15px 10px #dddddd;
+      background: rgb(34, 193, 195);
+      background: linear-gradient(
+          56deg,
+          rgba(34, 193, 195, 0.49193275943189773) 0%,
+          rgba(253, 187, 45, 0.494733879880077) 100%
+      );
+      position: relative;
+  }</style>
+    <title>HELLO THIS IS A TEST</title>
+  </head>
+  <body>
+      HELLO THIS IS PATRICK
+      <div class="chatPanel">
+        <ol id="messages" class="messages"></ol>
+      </div>
+      <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+    <script>
+    const socket = io("http://localhost:3000");
+      // listen for new messages
+      socket.on("message", function(data) {
+
+        $('#messages').append(
+                    "<li><span class='float-left'><span class='circle'>" +
+                        data +
+                        '</div></li>'
+                )
+
+
+
+        console.log(data);
+      });
+  // our sendMsg function...
+      function sendMsg() {
+        socket.emit("message", "HELLO WORLD");
+    }
+         sendMsg();
+    </script>
+  </body>
+</html>
