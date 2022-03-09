@@ -1,4 +1,4 @@
-import { Manager, Socket} from "socket.io-client";
+import { connect, Manager, Socket} from "socket.io-client";
 import {DefaultEventsMap} from "@socket.io/component-emitter";
 
 export class SocketIoService {
@@ -14,9 +14,11 @@ export class SocketIoService {
         this.socket.on("noArg", () => {
         });
 
-        this.socket.on("basicEmit", (a, b, c) => {
+        this.socket.on("basicEmit", (a : any, b:any, c:any) => {
             // a is inferred as number, b as string and c as buffer
             console.log(a + b + c);
         });
     }
 }
+
+connect();

@@ -18,20 +18,23 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 const path = __importStar(require("path"));
-const express_1 = __importDefault(require("express"));
-const app = (0, express_1.default)();
+const express = require("express");
+const app = express();
 app.set("port", process.env.PORT || 3000);
 let http = require("http").Server(app);
 // set up socket.io and bind it to our
 // http server.
 let io = require("socket.io")(http);
 app.get("/", (req, res) => {
-    res.sendFile(path.resolve("./client/index.html"));
+    res.sendFile(path.resolve("../front/dist/index.html"));
+});
+app.get("/fron.6d43893a.js", (req, res) => {
+    res.sendFile(path.resolve("../front/dist/fron.6d43893a.js"));
+});
+app.get("/fron.b23b6ac5.js", (req, res) => {
+    res.sendFile(path.resolve("../front/dist/fron.b23b6ac5.js"));
 });
 // whenever a user connects on port 3000 via
 // a websocket, log that a user has connected
