@@ -2388,9 +2388,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const mithril = __importStar(require("mithril"));
+const mithril_1 = __importDefault(require("mithril"));
 var root = document.body;
+(0, mithril_1.default)("div", { id: "toto" }, "titi");
 mithril.render(root, "hello world");
 
 },{"mithril":6}]},{},[26]);

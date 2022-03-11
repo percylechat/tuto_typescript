@@ -8,6 +8,6 @@
     "webpack-cli": "^4.9.2"
   },
   "scripts": {
-    "start": "tsc -p tsconfig.json src/index.ts && browserify src/index.js -o bin/app.js"
+    "start": "cd src && tsc -p ../tsconfig.json && cd ../ && browserify src/index.js -o bin/app.js"
   }
 }
