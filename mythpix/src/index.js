@@ -18,33 +18,31 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const m = __importStar(require("mithril"));
+const mithril_1 = __importDefault(require("mithril"));
 const PIXI = __importStar(require("pixi.js"));
 var root = document.body;
 // The application will create a renderer using WebGL, if possible,
 // with a fallback to a canvas render. It will also setup the ticker
 // and the root stage PIXI.Container
-const app = new PIXI.Application();
 // The application will create a canvas element for you that you
 // can then insert into the DOM
 //document.body.appendChild(app.view);
 // load the texture we need
-app.loader.add('bunny', 'assets/bunny.png').load((loader, resources) => {
-    // This creates a texture from a 'bunny.png' image
-    const bunny = new PIXI.Sprite(resources.bunny.texture);
-    // Setup the position of the bunny
-    bunny.x = app.renderer.width / 2;
-    bunny.y = app.renderer.height / 2;
-    // Rotate around the center
-    bunny.anchor.x = 0.5;
-    bunny.anchor.y = 0.5;
-    // Add the bunny to the scene we are building
-    app.stage.addChild(bunny);
-    // Listen for frame updates
-    app.ticker.add(() => {
-        // each frame we spin the bunny around a bit
-        bunny.rotation += 0.01;
-    });
+const app = new PIXI.Application({
+    width: 640,
+    height: 360,
+    backgroundColor: 0x1099bb
 });
-m.render(root, m("div", { id: "test" }, app.view));
+const basicText = new PIXI.Text('Mithril.js rocks!');
+basicText.x = 50;
+basicText.y = 100;
+app.stage.addChild(basicText);
+mithril_1.default.mount(document.body, {
+    view: () => (0, mithril_1.default)('.pixiContainer', {
+        oncreate: ({ dom }) => dom.appendChild(app.view)
+    })
+});
