@@ -4,6 +4,15 @@ import * as express from "express";
 //npm i --save-dev @types/node
 //npm i node
 // npm install --save express
+//npm install --save-dev webpack webpack-cli webpack-dev-server @types/webpack-dev-server
+//npm install --save-dev babel-loader
+//npm install --save-dev ts-node
+//npm install --save-dev @types/webpack-dev-server
+// @babel/preset-env
+// @babel/preset-typescript
+//  npm i -D lint
+//  npm i -D rollup terser
+
 
 import * as socketio from "socket.io";
 import * as path from "path";
@@ -47,7 +56,6 @@ io.on("connection", function(socket: any) {
 const server = http.listen(3000, function() {
   console.log("listening on *:3000");
 });
-
 
 // // console.log("WE ARE HERE");
 // const app = express();
