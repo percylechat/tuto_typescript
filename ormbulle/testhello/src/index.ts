@@ -1,8 +1,10 @@
 import "reflect-metadata";
-import {createConnection, getRepository, getConnection, getManager} from "typeorm";
+import {createConnection, getRepository, TypeORMError, getConnection, getManager} from "typeorm";
 // import {User} from "./entity/User";
 import {userbase} from "./entity/userbase";
 import {friends} from "./entity/friends";
+
+// WARNING si bug, tenter de supprimer la bdd(lié a modif de userbase.ts?)
 
 async function check_username(username: string){
     try{
@@ -27,14 +29,26 @@ async function add_user(username_p: string, password_p: string, avatar_p: string
     //     Age: 14 
     //  });
     // const repo_user = manager.getRepository(userbase);
-    await getConnection()
-    .createQueryBuilder()
-    .insert()
-    .into(userbase)
-    .values({
-         username: username_p, is_online: true, is_in_game: false, password: password_p, avatar: avatar_p }
-    )
-    .execute();
+    if (avatar_p === ""){
+        await getConnection()
+        .createQueryBuilder()
+        .insert()
+        .into(userbase)
+        .values({
+            username: username_p, is_online: true, is_in_game: false, password: password_p }
+        )
+        .execute();
+    }
+    else{
+        await getConnection()
+        .createQueryBuilder()
+        .insert()
+        .into(userbase)
+        .values({
+            username: username_p, is_online: true, is_in_game: false, password: password_p, avatar: avatar_p }
+        )
+        .execute();
+    }
 }
 
     // createConnection().then(async connection => {
@@ -48,16 +62,23 @@ async function add_user(username_p: string, password_p: string, avatar_p: string
     // return true;
     // }
 
-let robert: string = "test";
+let robert: string = "testeuriator";
 let r_mdp:string  = "bebe";
 let r_av: string = "";
 createConnection().then(async connection => {
-if (false)
-    console.log("error");
-else{
-    add_user(robert, r_mdp, r_av);
-    console.log("is okay");
-}})
+    if (false)
+        console.log("error");
+    else{
+        try{
+            add_user(robert, r_mdp, r_av);
+            console.log("is okay");
+        }
+        catch(UnhandledPromiseRejectionWarning){
+            console.log("is fail");
+            console.log(Error);
+        }
+    };
+})
 
 
 // createConnection().then(async connection => {

@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, Generated} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, Index, Unique, Generated} from "typeorm";
 
 @Entity()
 export class userbase {
@@ -10,7 +10,12 @@ export class userbase {
     // @Generated("uuid")
     // uuid: string;
 
-    @Column()
+    // @Column()
+    // username: string;
+
+    // @Index({ unique: true })
+    @Column({ unique: true })
+    // @Unique('Dublicate username', ['username'])
     username: string;
 
     @Column()
@@ -22,6 +27,6 @@ export class userbase {
     @Column()
     password: string;
 
-    @Column()
+    @Column({ default: "bebechat.jpg" })
     avatar: string;
 }
