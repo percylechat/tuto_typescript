@@ -9,8 +9,8 @@ class last_matches {
   third: string;
  
   constructor(username: string) {
-    this.first = username + "won against Percy: 5 vs 4";
-    this.second = username + "lost againt Claire: 2 vs 7";
+    this.first = username + " won against Percy: 5 vs 4";
+    this.second = username + " lost againt Claire: 2 vs 7";
     this.third = "";
   }
 }
@@ -29,43 +29,46 @@ class profile_info{
 @Injectable()
 export class Service_site {
   constructor(private adapterHost: HttpAdapterHost) {}
-  // getHello(): string {
-  //   return 'Hello World!';
-  // }
+  check_login(user: string): string{
+    return "ISME";
+  }
+
+  check_join(user: string): string{
+    return "ISME";
+  }
+  
+  go_ladder(): Map<string, number>{
+    let one: Map<string, number> = new Map<string, number>;
+    one.set("hello", 1);
+    one.set("bebe", 2);
+    return one;
+  }
+
   get_profile_info(user: string): profile_info{
-    // let start:number = Request.query.lastIndexOf("/");
     let one: profile_info = new profile_info;
-    // `${req.originalUrl}`
-    one.username = "hello";
+    one.username = user;
     one.is_valid = true;
     one.avatar = "bebechat.jpg";
     one.ladder = 42;
     one.status = "online";
     one.is_friend = true;
     one.is_blocked = false;
-    one.matches = new last_matches(user);
+    one.matches = new last_matches(one.username);
     return one;
   }
-//   is_valid(username: string): boolean{
-// // throw new NotFoundException;
-//     return true;
-//   }
-//   get_avatar(username: string): string{
-//     return "bebechat.jpg";
-//   }
-//   get_ladder(username: string): number{
-//     return 42;
-//   }
-//   get_status(username: string): string{
-//     return "online";
-//   }
-//   is_friend(username: string, UUID: string): boolean{
-//     return true;
-//   }
-//   is_blocked(username: string, UUID: string): boolean{
-//     return true;
-//   }
-//   get_last_matches(username: string): last_matches{
-//     return new last_matches(username);
-//   }
+  add_as_friend(user:string, UUID: string): boolean{
+    return true;
+  }
+  remove_as_friend(user:string, UUID: string): boolean{
+    return true;
+  }
+  add_as_blocked(user:string, UUID: string): boolean{
+    return true;
+  }
+  remove_as_blocked(user:string, UUID: string): boolean{
+    return true;
+  }
+  send_dm(user:string, UUID: string): string{
+    return "ping";
+  }
 }
