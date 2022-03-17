@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@nestjs/platform-socket.io": "^8.4.1",
+    "@nestjs/websockets": "^8.4.1",
+    "@types/socket.io": "^3.0.2",
+    "@types/socket.io-client": "^3.0.0",
+    "ngx-socket-io": "^4.2.0",
+    "simple-websocket": "^9.1.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.5.3"
+  }
+}
