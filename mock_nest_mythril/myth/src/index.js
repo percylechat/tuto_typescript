@@ -44,7 +44,7 @@ mithril_1.default.request({
     method: "Post",
     url: "http://localhost:3000/profile/",
     responseType: "json",
-    body: { user: "toto" },
+    body: { user: "toto", token: "456" },
 })
     .then(function (result) {
     console.log('result2');

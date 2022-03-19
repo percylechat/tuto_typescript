@@ -89,7 +89,7 @@ export class Controller_profile {
   @Post()
   post_profile_info(@Body() params): profile_info{
     // let user: string = "${req.originalUrl}";
-
+    console.log("post params")
     let user:string = params.user;
     console.log(params)
     return this.appService.get_profile_info(user);
