@@ -38,7 +38,7 @@ export class Service_site {
   }
   
   go_ladder(): Map<string, number>{
-    let one: Map<string, number> = new Map<string, number>;
+    let one: Map<string, number> = new Map<string, number>();
     one.set("hello", 1);
     one.set("bebe", 2);
     return one;
