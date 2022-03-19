@@ -40,4 +40,14 @@ mithril_1.default.request({
     .then(function (result) {
     console.log(result);
 });
+mithril_1.default.request({
+    method: "Post",
+    url: "http://localhost:3000/profile/",
+    responseType: "json",
+    body: { user: "toto" },
+})
+    .then(function (result) {
+    console.log('result2');
+    console.log(result);
+});
 mithril.render(root, "hello world");

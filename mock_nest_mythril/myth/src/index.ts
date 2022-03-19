@@ -12,5 +12,15 @@ m.request({
 .then(function(result) {
     console.log(result)
 })
+m.request({
+    method: "Post",
+    url: "http://localhost:3000/profile/",
+    responseType:"json",
+    body: {user: "toto"},
+})
+.then(function(result) {
+    console.log('result2')
+    console.log(result)
+})
 mithril.render(root,"hello world")
 

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Req, Param } from '@nestjs/common';
+import { Controller, Get, Post, Req, Param,Body } from '@nestjs/common';
 import { Service_site } from './app.service';
 import {Request} from 'express';
 import {HttpAdapterHost} from '@nestjs/core';
@@ -80,7 +80,18 @@ export class Controller_profile {
   @Get(':user')
   get_profile_info(@Param() params): profile_info{
     // let user: string = "${req.originalUrl}";
+
     let user:string = params.user;
+    console.log(params)
+    return this.appService.get_profile_info(user);
+  }
+  // Pour les requetes posts plutot utiliser @Body
+  @Post()
+  post_profile_info(@Body() params): profile_info{
+    // let user: string = "${req.originalUrl}";
+
+    let user:string = params.user;
+    console.log(params)
     return this.appService.get_profile_info(user);
   }
 }
