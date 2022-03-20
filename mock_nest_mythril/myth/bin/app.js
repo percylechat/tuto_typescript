@@ -2414,12 +2414,12 @@ mithril_1.default.request({
     method: "Post",
     url: "http://localhost:3000/profile/",
     responseType: "json",
-    body: { user: "toto", token: "456" },
+    body: { user: "toto", token: "456", new_name: "totot de la mort" },
 })
     .then(function (result) {
     console.log('result2');
     console.log(result);
+    mithril.render(root, "hello ! : " + result.username);
 });
-mithril.render(root, "hello world");
 
 },{"mithril":6}]},{},[26]);
