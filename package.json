@@ -1,5 +1,12 @@
 {
   "dependencies": {
-    "@nestjs/cli": "^8.2.3"
+    "@nestjs/cli": "^8.2.3",
+    "reflect-metadata": "^0.1.13",
+    "sqlite": "^4.0.25",
+    "sqlite3": "^4.2.0",
+    "typeorm": "^0.3.0-alpha.24"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21"
   }
 }
