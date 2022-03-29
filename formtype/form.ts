@@ -1,7 +1,8 @@
-const form  = document.querySelector('form_test')
+const form  = document.querySelector('form')
+
+
 if (form != null ) {
     const data = new FormData(form);
-    
     for (const pair of data) {
         console.log(pair)
     }
@@ -9,5 +10,4 @@ if (form != null ) {
     for (const pair of data.entries()) {
         console.log(pair)
     }
-    
 }
