@@ -1,4 +1,5 @@
 python3 Analyze.py
+sh blacked.sh
 git config --global user.name "bussiere"
 git config --global user.email "bussiere@gmail.com"
 branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
