@@ -7,6 +7,7 @@ authors = ["bussiere <bussiere@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 requests = "^2.27.1"
+Flask = "^2.1.2"
 
 [tool.poetry.dev-dependencies]
 
