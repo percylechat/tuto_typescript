@@ -10,16 +10,19 @@ form.addEventListener('submit', (event) => {
 
 
 // here we get the file and convert it to base64
-function getBase64(file : Blob) {
+function getBase64(file : Blob) : string {
     var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function () {
         console.log("base64")
       console.log(reader.result);
+      return reader.result;
     };
     reader.onerror = function (error) {
       console.log('Error: ', error);
+      return "";
     };
+    return "";
  }
 
 if (form != null ) {
