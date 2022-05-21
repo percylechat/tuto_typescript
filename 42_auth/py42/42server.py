@@ -51,6 +51,15 @@ def done():
     return render_template("done.html")
 
 
+@app.route("/callback_ext/")
+def callback():
+    code = request.args.get("code", default="", type=str)
+    print(code)
+    if code != "toto":
+        print(code)
+    return render_template("index.html")
+
+
 @app.route("/callback/")
 def callback():
     code = request.args.get("code", default="", type=str)

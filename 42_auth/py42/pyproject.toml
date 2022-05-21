@@ -8,6 +8,7 @@ authors = ["bussiere <bussiere@gmail.com>"]
 python = "^3.8"
 requests = "^2.27.1"
 Flask = "^2.1.2"
+SQLAlchemy = "^1.4.36"
 
 [tool.poetry.dev-dependencies]
 

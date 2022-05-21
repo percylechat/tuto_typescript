@@ -1,2 +1,3 @@
 42_auth/py42/42server.py;31;if code != "toto":
-42_auth/py42/42server.py;58;if code != "toto":
+42_auth/py42/42server.py;57;if code != "toto":
+42_auth/py42/42server.py;66;if code != "toto":
