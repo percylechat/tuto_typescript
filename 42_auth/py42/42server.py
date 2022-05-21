@@ -33,7 +33,7 @@ def done():
         data_42 = {
             "grant_type": "authorization_code",
             "client_id": data_cred["client_id"],
-            "client_secret": data_cred["client_id"],
+            "client_secret": data_cred["client_secret"],
             "code": code,
             "redirect_uri": data_cred["redirect_uri"],
         }
@@ -52,7 +52,7 @@ def done():
 
 
 @app.route("/callback_ext/")
-def callback():
+def callback_ext():
     code = request.args.get("code", default="", type=str)
     print(code)
     if code != "toto":
